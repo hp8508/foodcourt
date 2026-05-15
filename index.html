@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>비빔밥의 유래와 의의 | Bibimbap Story</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <style>
+    body {
+      font-family: 'Noto Sans KR', 'Noto Sans JP', 'Noto Sans SC', Arial, sans-serif;
+      background: #f7f4ef;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 40px auto;
+      background: white;
+      border-radius: 20px;
+      padding: 40px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+      text-align: center;
+      color: #b22222;
+      margin-bottom: 10px;
+    }
+
+    .subtitle {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #666;
+    }
+
+    .language-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 30px;
+      flex-wrap: wrap;
+    }
+
+    button {
+      padding: 12px 22px;
+      border: none;
+      border-radius: 12px;
+      background: #b22222;
+      color: white;
+      cursor: pointer;
+      font-size: 16px;
+      transition: 0.2s;
+    }
+
+    button:hover {
+      background: #8b1a1a;
+      transform: translateY(-2px);
+    }
+
+    .content {
+      line-height: 1.8;
+      font-size: 18px;
+      text-align: center;
+    }
+
+    h2 {
+      margin-top: 28px;
+      color: #b22222;
+    }
+
+    ul {
+      padding-left: 0;
+      list-style-position: inside;
+      text-align: center;
+    }
+
+    li {
+      margin-bottom: 12px;
+    }
+
+    .hero-image {
+      width: 100%;
+      max-width: 700px;
+      display: block;
+      margin: 0 auto 30px;
+      border-radius: 18px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+      object-fit: cover;
+    }
+
+    .language-selector {
+      display: flex;
+      justify-content: center;
+      gap: 18px;
+      margin-bottom: 30px;
+      flex-wrap: wrap;
+    }
+
+    .language-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .flag {
+      font-size: 38px;
+    }
+
+    #qrcode {
+      display: flex;
+      justify-content: center;
+      margin-top: 40px;
+    }
+
+    .footer {
+      text-align: center;
+      margin-top: 20px;
+      color: #777;
+      font-size: 14px;
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        margin: 20px;
+        padding: 24px;
+      }
+
+      .content {
+        font-size: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 id="title">비빔밥의 유래</h1>
+    <div class="subtitle" id="subtitle">
+      한그릇에 담아낸 한국의 조화와 풍요
+    </div>
+
+    <img
+      class="hero-image"
+      src="https://upload.wikimedia.org/wikipedia/commons/4/44/Dolsot-bibimbap.jpg"
+      alt="비빔밥"
+    />
+
+    <div class="language-selector">
+      <div class="language-item">
+        <div class="flag">🇰🇷</div>
+        <button onclick="setLanguage('ko')">한국어</button>
+      </div>
+
+      <div class="language-item">
+        <div class="flag">🇺🇸</div>
+        <button onclick="setLanguage('en')">English</button>
+      </div>
+
+      <div class="language-item">
+        <div class="flag">🇯🇵</div>
+        <button onclick="setLanguage('ja')">日本語</button>
+      </div>
+
+      <div class="language-item">
+        <div class="flag">🇨🇳</div>
+        <button onclick="setLanguage('zh')">中文</button>
+      </div>
+    </div>
+
+    <div class="content" id="content"></div>
+
+    <div id="qrcode"></div>
+
+    <div class="footer">
+      QR 코드를 스캔하면 이 페이지로 연결됩니다.
+    </div>
+  </div>
+
+  <script>
+    const translations = {
+      ko: {
+        title: '비빔밥의 유래와 의의',
+        subtitle: '한그릇에 담아낸 한국의 조화와 풍요',
+        content: `
+          <p>
+            <strong>비빔밥</strong>은 밥 위에 여러 나물과 고기, 장을 올려 비벼 먹는 한국의 대표 음식이다.
+          </p>
+
+          <p>
+            그 유래는 제사 음식이나 명절 음식을 함께 비벼 먹던 풍습, 농번기 들밥 문화,
+            왕실의 골동반 등에서 비롯된 것으로 전해진다.
+          </p>
+
+          <p>
+            지역마다 사용하는 재료와 방식은 달랐지만,
+            남은 음식과 제철 식재료를 한 그릇에 조화롭게 담아낸다는 점에서
+            한국 음식 문화의 특징을 잘 보여주는 음식으로 자리 잡았다.
+          </p>
+
+          <p>
+            특히 다양한 색과 맛이 어우러지는 비빔밥은
+            한국의 ‘조화와 균형’의 식문화를 상징하는 음식으로도 여겨진다.
+          </p>
+
+          <p>
+            오늘날 비빔밥은 건강한 한식의 대표 메뉴로 세계에 알려지고 있으며,
+            한국을 대표하는 K-푸드 가운데 하나로 사랑받고 있다.
+          </p>
+        `
+      },
+
+      en: {
+        title: 'Origins and Meaning of Bibimbap',
+        subtitle: 'Harmony and Abundance in One Bowl',
+        content: `
+          <p>
+            <strong>Bibimbap</strong> is one of Korea’s 대표 traditional dishes, made by mixing rice with various vegetables, meat, and sauce.
+          </p>
+
+          <p>
+            Its origins are believed to come from traditions such as mixing ceremonial foods,
+            farmers’ field meals during busy seasons, and the royal dish known as Goldongban.
+          </p>
+
+          <p>
+            Although ingredients and styles differ by region,
+            bibimbap reflects Korean food culture through its harmonious combination of leftovers and seasonal ingredients in a single bowl.
+          </p>
+
+          <p>
+            With its colorful appearance and balanced flavors,
+            bibimbap is regarded as a symbol of harmony and balance in Korean cuisine.
+          </p>
+
+          <p>
+            Today, bibimbap is recognized worldwide as a healthy Korean dish
+            and is loved as one of the 대표 K-foods.
+          </p>
+        `
+      },
+
+      ja: {
+        title: 'ビビンバの由来と意義',
+        subtitle: '一杯に込められた韓国の調和と豊かさ',
+        content: `
+          <p>
+            <strong>ビビンバ</strong>は、ご飯の上にナムルや肉、タレをのせて混ぜて食べる韓国の代表的な料理です。
+          </p>
+
+          <p>
+            その由来は、祭祀料理や名節料理を混ぜて食べた風習、
+            農繁期の野外食文化、王室料理の「骨董飯」などにあると伝えられています。
+          </p>
+
+          <p>
+            地域によって材料や調理法は異なりますが、
+            残り物や旬の食材を一つの器に調和よく盛り込む点で、
+            韓国の食文化をよく表す料理として定着しました。
+          </p>
+
+          <p>
+            特に多彩な色と味が調和するビビンバは、
+            韓国の「調和と均衡」の食文化を象徴する料理とも考えられています。
+          </p>
+
+          <p>
+            現在では、ビビンバは健康的な韓国料理として世界に知られ、
+            韓国を代表するK-フードの一つとして愛されています。
+          </p>
+        `
+      },
+
+      zh: {
+        title: '拌饭的起源与意义',
+        subtitle: '一碗之中体现韩国的和谐与丰盛',
+        content: `
+          <p>
+            <strong>韩式拌饭</strong>是在米饭上放入各种蔬菜、肉类和酱料后搅拌食用的韩国代表性传统美食。
+          </p>
+
+          <p>
+            它的起源据说来自将祭祀食品、节日食品混合食用的习俗，
+            以及农忙时期的田间便餐文化和宫廷料理“骨董饭”等。
+          </p>
+
+          <p>
+            虽然各地区使用的食材和做法不同，
+            但将剩余食物和时令食材和谐地装入一碗中的特点，
+            充分展现了韩国饮食文化的特色。
+          </p>
+
+          <p>
+            尤其是色彩与味道丰富融合的拌饭，
+            也被认为是象征韩国“和谐与平衡”饮食文化的代表性食物。
+          </p>
+
+          <p>
+            如今，韩式拌饭作为健康韩餐的代表菜单已闻名世界，
+            并成为最受欢迎的韩国K-Food之一。
+          </p>
+        `
+      }
+    };
+
+    function setLanguage(lang) {
+      document.getElementById('title').innerHTML = translations[lang].title;
+      document.getElementById('subtitle').innerHTML = translations[lang].subtitle;
+      document.getElementById('content').innerHTML = translations[lang].content;
+    }
+
+    setLanguage('ko');
+
+    const currentURL = window.location.href;
+
+    new QRCode(document.getElementById('qrcode'), {
+      text: currentURL,
+      width: 180,
+      height: 180
+    });
+  </script>
+</body>
+</html>
