@@ -17,6 +17,19 @@
       color: #333;
     }
 
+    .museum-logo {
+      display: flex;
+      justify-content: flex-start;
+      margin-bottom: 20px;
+    }
+
+    .museum-logo img {
+      width: 180px;
+      max-width: 55%;
+      height: auto;
+      opacity: 0.95;
+    }
+
     .container {
       max-width: 900px;
       margin: 40px auto;
@@ -151,6 +164,11 @@
     }
 
     @media (max-width: 600px) {
+      .museum-logo img {
+        width: 140px;
+        max-width: 48%;
+      }
+
       .container {
         margin: 16px;
         padding: 20px;
@@ -166,10 +184,10 @@
       }
 
       button {
-        max-width: 72px;
-        min-height: 38px;
+        width: 68px;
+        height: 36px;
         font-size: 10px;
-        padding: 5px 2px;
+        padding: 0;
       }
 
       .flag {
@@ -181,6 +199,9 @@
 </head>
 <body>
   <div class="container">
+    <div class="museum-logo">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/3/36/National_Museum_of_Korea_logo.svg" alt="국립중앙박물관" />
+    </div>
     <h1 id="title">비빔밥의 유래</h1>
     <div class="subtitle" id="subtitle">
       한그릇에 담아낸 한국의 조화와 풍요
